@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gympath — Ухаалаг фитнес хөдөлгөөн трекер</title>
+  <meta name="description" content="Gympath ухаалаг фитнес трекер — дасгалын хөдөлгөөнийг бодит цагт хэмжиж, гүйцэтгэл, давталт, хурдыг тань хянана. Худалдан авах, багц сонгох, бүртгүүлэх." />
+  <meta property="og:title" content="Gympath — Ухаалаг фитнес трекер" />
+  <meta property="og:description" content="Дасгалын хөдөлгөөнийг бодит цагт хэмждэг ухаалаг трекер." />
+  <meta property="og:image" content="assets/img/slide1.jpg" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <a class="brand" href="index.html" aria-label="Gympath">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-word"><span class="g">Gym</span>path<span class="dot">.</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#features">Боломжууд</a>
+      <a href="#how">Яаж ажилладаг</a>
+      <a href="#shop">Дэлгүүр</a>
+      <a href="#plans">Багц</a>
+      <span id="navAuth"></span>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <video class="hero-video" autoplay muted loop playsinline poster="assets/img/slide1.jpg">
+      <source src="assets/video/slide1.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content reveal">
+      <div class="hero-logo"><span class="g">Gym</span><span class="w">path</span><span class="dot">.</span></div>
+      <p class="hero-tagline">Дасгалын хөдөлгөөн бүрийг бодит цагт хэмжиж, гүйцэтгэлээ
+        дараагийн түвшинд гаргадаг ухаалаг фитнес трекер.</p>
+      <div class="pills">
+        <span class="pill on">Бодит цагийн хэмжилт</span>
+        <span class="pill">Гүйцэтгэлийн шинжилгээ</span>
+        <span class="pill">Дасгалжуулагчийн хяналт</span>
+        <span class="pill">Хувийн зөвлөмж</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#shop">Худалдаж авах</a>
+        <a class="btn btn-ghost" href="#features">Боломжуудыг үзэх</a>
+      </div>
+    </div>
+    <a class="scroll-hint" href="#features" aria-label="Доош"><span></span></a>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="section" id="features">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Боломжууд</span>
+        <h2 class="title">Дасгалжуулагчаас ч илүү <span class="accent">анхаарал</span></h2>
+        <p class="lead">Gympath чамтай хамт дасгал хийж, хөдөлгөөн бүрийг хэмжиж, юу сайжруулахыг тань хэлж өгнө.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="fcard reveal"><span class="ic"></span><h3>Бодит цагийн хэмжилт</h3><p>Давталт, хурд, хөдөлгөөний нарийвчлалыг секунд тутамд хэмжинэ.</p></div>
+        <div class="fcard reveal"><span class="ic"></span><h3>Гүйцэтгэлийн шинжилгээ</h3><p>Өдөр бүрийн ахиц, streak, нарийвчлалаа хянаж сайжир.</p></div>
+        <div class="fcard reveal"><span class="ic"></span><h3>Дасгалжуулагчийн хяналт</h3><p>Коуч таны гүйцэтгэлийг алсаас хянаж зөвлөгөө өгнө.</p></div>
+        <div class="fcard reveal"><span class="ic"></span><h3>Хоолны жор</h3><p>Зорилгод тань тохирсон хоолны төлөвлөгөө санал болгоно.</p></div>
+        <div class="fcard reveal"><span class="ic"></span><h3>Хэмнэлд тааруулсан хөгжим</h3><p>Дасгалын хэмнэлд тохирсон дууны жагсаалт.</p></div>
+        <div class="fcard reveal"><span class="ic"></span><h3>Сэдэлжүүлэх мэдэгдэл</h3><p>Gym-ээс 1–2 км дотор ойртох, хамтрагч жимдээ орох үед сэрэмжлүүлнэ.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT BAND -->
+  <section class="section alt" id="product">
+    <div class="wrap two-col">
+      <div class="col reveal">
+        <span class="eyebrow">Төхөөрөмж</span>
+        <h2 class="title">Жижигхэн биетэй, <span class="accent">том</span> чадвартай</h2>
+        <p class="body">Биедээ зүүх жижигхэн трекер. QMI8658 6-тэнхлэгт мэдрэгч секундэд 1000 удаа
+          хэмжиж, ESP32-S3 BLE-ээр аппруу 50 Гц-ийн хурдтай дамжуулна.</p>
+        <ul class="checks">
+          <li>QMI8658 6-тэнхлэгт IMU — 1000 Гц</li>
+          <li>ESP32-S3 + Bluetooth 5.0</li>
+          <li>240×240 дугуй TFT дэлгэц</li>
+          <li>Кабель машин болон чөлөөт жингийн дасгалд</li>
+        </ul>
+      </div>
+      <div class="col reveal">
+        <div class="media-card">
+          <video controls preload="none" playsinline poster="assets/img/slide3.jpg">
+            <source src="assets/video/slide3.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW -->
+  <section class="section" id="how">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Яаж ажилладаг вэ</span>
+        <h2 class="title">Гурван алхамд бэлэн</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><span class="step-n">1</span><h3>Холбох</h3><p>Трекерээ асаагаад аппаараа Bluetooth-оор хормын дотор холбоно.</p></div>
+        <div class="step reveal"><span class="step-n">2</span><h3>Дасгалаа хийх</h3><p>Дасгалаа сонгоод эхэл — хөдөлгөөн, давталт, хурд бодит цагт хэмжигдэнэ.</p></div>
+        <div class="step reveal"><span class="step-n">3</span><h3>Хянах</h3><p>Гүйцэтгэл, нарийвчлал, streak-ээ хараад өдрөөс өдөрт сайжир.</p></div>
+      </div>
+      <div class="media-card wide reveal">
+        <video controls preload="none" playsinline poster="assets/img/slide4.jpg">
+          <source src="assets/video/slide4.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- APP -->
+  <section class="section alt" id="app">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Мобайл апп</span>
+        <h2 class="title">Тоглоом шиг <span class="accent">сэтгэл татам</span></h2>
+        <p class="lead">Дасгалын долгионыг дагаж, нарийвчлал, streak, bonus-аа цуглуул. Бодит цагийн
+          хөдөлгөөн, leaderboard, хоолны төлөвлөгөө — бүгд нэг дор.</p>
+      </div>
+      <div class="media-card wide reveal">
+        <video controls preload="none" playsinline poster="assets/img/slide5.jpg">
+          <source src="assets/video/slide5.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <figure class="shot reveal">
+        <img src="assets/img/slide12.jpg" alt="Gympath мобайл аппын дэлгэцүүд" loading="lazy" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- SHOP -->
+  <section class="section" id="shop">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Дэлгүүр</span>
+        <h2 class="title">Gympath-аа <span class="accent">аваарай</span></h2>
+      </div>
+      <div class="shop-card reveal">
+        <div class="shop-media">
+          <video autoplay muted loop playsinline poster="assets/img/slide6.jpg">
+            <source src="assets/video/slide6.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="shop-info">
+          <h3>Gympath Tracker</h3>
+          <p class="muted">Ухаалаг хөдөлгөөн трекер + мобайл апп. Хайрцагт: трекер, цэнэглэгч, гарын авлага.</p>
+          <ul class="checks">
+            <li>Бодит цагийн хөдөлгөөн хэмжилт</li>
+            <li>Үнэгүй Gympath апп (iOS / Android)</li>
+            <li>1 жилийн баталгаа</li>
+          </ul>
+          <div class="price-row">
+            <div class="price">₮349,000</div>
+            <button class="btn btn-primary" data-buy="Gympath Tracker" data-price="349000">Захиалах</button>
+          </div>
+          <p class="muted small">Захиалга баталгаажуулсны дараа манай баг тантай холбогдоно.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLANS -->
+  <section class="section alt" id="plans">
+    <div class="wrap">
+      <div class="head reveal">
+        <span class="eyebrow">Багц</span>
+        <h2 class="title">Өөрт тохирох <span class="accent">багцаа</span> сонго</h2>
+        <p class="lead">Хэдийд ч багцаа сольж болно. Бүх багц Gympath трекертэй ажиллана.</p>
+      </div>
+      <div class="plan-grid">
+        <div class="plan reveal">
+          <h3>Free</h3>
+          <div class="plan-price">₮0<small>/сар</small></div>
+          <ul>
+            <li>Бодит цагийн хэмжилт</li>
+            <li>Үндсэн статистик</li>
+            <li>Leaderboard</li>
+          </ul>
+          <button class="btn btn-ghost" data-plan="Free">Сонгох</button>
+        </div>
+        <div class="plan featured reveal">
+          <span class="plan-badge">Хамгийн их сонгогддог</span>
+          <h3>Pro</h3>
+          <div class="plan-price">₮19,000<small>/сар</small></div>
+          <ul>
+            <li>Free-ийн бүх боломж</li>
+            <li>Гүйцэтгэлийн дэлгэрэнгүй шинжилгээ</li>
+            <li>Хоолны төлөвлөгөө</li>
+            <li>Хэмнэлд тааруулсан хөгжим</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="Pro">Сонгох</button>
+        </div>
+        <div class="plan reveal">
+          <h3>Coach</h3>
+          <div class="plan-price">₮49,000<small>/сар</small></div>
+          <ul>
+            <li>Pro-ийн бүх боломж</li>
+            <li>Дасгалжуулагчийн хяналт</li>
+            <li>Хувийн дасгалын хөтөлбөр</li>
+            <li>Долоо хоног тутмын зөвлөгөө</li>
+          </ul>
+          <button class="btn btn-ghost" data-plan="Coach">Сонгох</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="cta">
+    <video class="cta-video" autoplay muted loop playsinline poster="assets/img/slide14.jpg">
+      <source src="assets/video/slide14.mp4" type="video/mp4" />
+    </video>
+    <div class="cta-overlay"></div>
+    <div class="cta-content reveal">
+      <h2>Хөдөлгөөн бүрийг <span class="accent">тоолъё</span>.</h2>
+      <p>Gympath-тай хамт дасгалаа дараагийн түвшинд гаргаарай.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#shop">Худалдаж авах</a>
+        <a class="btn btn-ghost" href="account.html">Бүртгүүлэх</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap foot">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-word"><span class="g">Gym</span>path<span class="dot">.</span></span>
+      </a>
+      <p class="muted">Ухаалаг фитнес хөдөлгөөн трекер · Монголд бүтээв 🇲🇳</p>
+      <p class="muted small">© <span id="year"></span> Gympath. ESP32-S3 · QMI8658 · Flutter.</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профайл — Gympath</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav scrolled" id="nav">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>
+      <span class="brand-word"><span class="g">Gym</span>path<span class="dot">.</span></span></a>
+    <nav class="nav-links"><a href="index.html#shop">Дэлгүүр</a><a href="index.html#plans">Багц</a><span id="navAuth"></span></nav>
+  </header>
+
+  <main class="profile-wrap">
+    <div class="wrap">
+      <div class="profile-head">
+        <div class="avatar" id="avatar"></div>
+        <div>
+          <h1 id="pName"></h1>
+          <p class="muted" id="pEmail"></p>
+          <p class="muted small" id="pSince"></p>
+        </div>
+      </div>
+
+      <div class="profile-grid">
+        <section class="panel">
+          <h2>Таны багц</h2>
+          <div class="current-plan"><span id="planName"></span></div>
+          <p class="muted small">Багцаа доороос сольж болно.</p>
+          <div class="plan-switch">
+            <button class="chip" data-plan="Free">Free</button>
+            <button class="chip" data-plan="Pro">Pro</button>
+            <button class="chip" data-plan="Coach">Coach</button>
+          </div>
+        </section>
+
+        <section class="panel">
+          <h2>Захиалгууд</h2>
+          <div id="orders"></div>
+        </section>
+      </div>
+
+      <div class="profile-actions">
+        <a class="btn btn-ghost" href="index.html#shop">Дэлгүүр рүү</a>
+        <button class="btn btn-ghost" id="logoutBtn">Гарах</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="assets/js/auth.js"></script>
+  <script>
+    const u = GP.currentUser();
+    if (!u) location.replace('account.html');
+
+    const fmt = (n) => '₮' + Number(n).toLocaleString('en-US');
+    const dt = (s) => new Date(s).toLocaleDateString('mn-MN');
+
+    function render() {
+      const cur = GP.currentUser();
+      document.getElementById('avatar').textContent = (cur.name[0] || 'G').toUpperCase();
+      document.getElementById('pName').textContent = cur.name;
+      document.getElementById('pEmail').textContent = cur.email;
+      document.getElementById('pSince').textContent = 'Гишүүн болсон: ' + dt(cur.createdAt);
+      document.getElementById('planName').textContent = cur.plan + ' багц';
+      document.querySelectorAll('.plan-switch .chip').forEach(c =>
+        c.classList.toggle('active', c.dataset.plan === cur.plan));
+      const o = cur.orders || [];
+      document.getElementById('orders').innerHTML = o.length
+        ? o.map(x => `<div class="order"><div><b>${x.item}</b><span class="muted small"> · ${x.id}</span><br><span class="muted small">${dt(x.date)}</span></div><div class="order-price">${fmt(x.price)}</div></div>`).join('')
+        : '<p class="muted">Захиалга алга байна. <a href="index.html#shop" class="accent">Дэлгүүр рүү</a>.</p>';
+    }
+
+    let toastTimer;
+    function toast(m){const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600);}
+
+    document.querySelectorAll('.plan-switch .chip').forEach(c =>
+      c.addEventListener('click', () => { GP.setPlan(c.dataset.plan); render(); toast(c.dataset.plan + ' багц идэвхжлээ.'); }));
+    document.getElementById('logoutBtn').addEventListener('click', () => { GP.logout(); location.href = 'index.html'; });
+
+    render();
+  </script>
+</body>
+</html>

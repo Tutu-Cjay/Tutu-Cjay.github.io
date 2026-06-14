@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Нэвтрэх — Gympath</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <header class="nav scrolled" id="nav">
+    <a class="brand" href="index.html"><span class="brand-mark"></span>
+      <span class="brand-word"><span class="g">Gym</span>path<span class="dot">.</span></span></a>
+    <nav class="nav-links"><a href="index.html#shop">Дэлгүүр</a><a href="index.html#plans">Багц</a><span id="navAuth"></span></nav>
+  </header>
+
+  <main class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Нэвтрэх</button>
+        <button class="auth-tab" data-tab="signup">Бүртгүүлэх</button>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <label>Имэйл<input type="email" name="email" required autocomplete="email" /></label>
+        <label>Нууц үг<input type="password" name="password" required autocomplete="current-password" /></label>
+        <p class="auth-err" id="loginErr"></p>
+        <button class="btn btn-primary full" type="submit">Нэвтрэх</button>
+      </form>
+
+      <form id="signupForm" class="auth-form hidden">
+        <label>Нэр<input type="text" name="name" required autocomplete="name" /></label>
+        <label>Имэйл<input type="email" name="email" required autocomplete="email" /></label>
+        <label>Нууц үг<input type="password" name="password" required minlength="6" autocomplete="new-password" /></label>
+        <p class="auth-err" id="signupErr"></p>
+        <button class="btn btn-primary full" type="submit">Бүртгүүлэх</button>
+      </form>
+
+      <p class="muted small auth-note">Энэ нь demo бүртгэл — мэдээлэл зөвхөн таны хөтөч дээр хадгалагдана.</p>
+    </div>
+  </main>
+
+  <script src="assets/js/auth.js"></script>
+  <script>
+    // already logged in → profile
+    if (GP.currentUser()) location.replace('profile.html');
+
+    const tabs = document.querySelectorAll('.auth-tab');
+    const forms = { login: document.getElementById('loginForm'), signup: document.getElementById('signupForm') };
+    tabs.forEach(t => t.addEventListener('click', () => {
+      tabs.forEach(x => x.classList.remove('active'));
+      t.classList.add('active');
+      Object.entries(forms).forEach(([k, f]) => f.classList.toggle('hidden', k !== t.dataset.tab));
+    }));
+
+    function afterAuth() {
+      const intent = sessionStorage.getItem('gp_after');
+      sessionStorage.removeItem('gp_after');
+      if (intent === 'order') { GP.addOrder({ item: 'Gympath Tracker', price: 349000, type: 'device' }); location.href = 'profile.html'; return; }
+      if (intent && intent.startsWith('plan:')) { GP.setPlan(intent.split(':')[1]); location.href = 'profile.html'; return; }
+      location.href = 'profile.html';
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      try { GP.login({ email: f.email.value, password: f.password.value }); afterAuth(); }
+      catch (err) { document.getElementById('loginErr').textContent = err.message; }
+    });
+    document.getElementById('signupForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const f = e.target;
+      try { GP.register({ name: f.name.value, email: f.email.value, password: f.password.value }); afterAuth(); }
+      catch (err) { document.getElementById('signupErr').textContent = err.message; }
+    });
+  </script>
+</body>
+</html>
