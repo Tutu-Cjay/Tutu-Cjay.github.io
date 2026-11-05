@@ -1,0 +1,8 @@
+{
+    "version":  "1.0.0",
+    "url":  "https://tutu-cjay.github.io/firmware/gympath_track-1.0.0.bin",
+    "size":  535120,
+    "md5":  "b710b23ae09c4f21451839aaff39e02c",
+    "notes":  "1D gravity-axis tracking for cable machines + over-the-air updates.",
+    "minAppVersion":  "1.0.0"
+}
